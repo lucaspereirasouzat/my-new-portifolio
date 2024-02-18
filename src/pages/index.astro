@@ -3,7 +3,27 @@ import Layout from "../layouts/Layout.astro";
 import { TextGenerateEffect } from "@/components/TextGenerative";
 import { ThreeDCardDemo } from "@/components/card3d";
 import { SparklesPreview } from "@/components/sparkTitle";
+import { TypewriterEffectSmooth } from "@/components/typewriter-effect";
 import Card from "../components/Card.astro";
+
+const words = [
+  {
+    text: "Build",
+  },
+  {
+    text: "awesome",
+  },
+  {
+    text: "apps",
+  },
+  {
+    text: "with",
+  },
+  {
+    text: "Aceternity.",
+    className: "text-blue-500 dark:text-blue-500",
+  },
+];
 
 const someProps = {
   count: 0,
@@ -71,6 +91,8 @@ const someProps = {
                   client:only="react"
                   words="Lucas Pereira de Souza"
                 />
+
+                <TypewriterEffectSmooth client:only="react" words={words} />
 
                 <p class="text-gray-500 text-sm">
                   Senior Full Stack Web Developer (React, Nodejs)
