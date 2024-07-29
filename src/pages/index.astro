@@ -8,7 +8,6 @@ import { WobbleCard } from "@/components/wobble-card";
 
 import { TypewriterEffectSmooth } from "@/components/typewriter-effect";
 import { Image } from "astro:assets";
-import Card from "../components/Card.astro";
 
 const words = [
   {
@@ -39,7 +38,7 @@ const someProps = {
   <body class="h-screen bg-white">
     <!-- header section -->
     <header>
-      <div class="w-full mx-auto bg-gray-950 text-white">
+      <div class="w-full mx-auto bg-transparent fixed z-50 text-white">
         <nav class="sm:hidden pt-3 pb-2 bg-white">
           <ul class="flex justify-center gap-10">
             <li class="hover:text-gray-500 text-gray-500">
@@ -96,8 +95,10 @@ const someProps = {
         className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
       >
         <div class="container mx-auto">
-          <div class="flex justify-center">
-            <div class="flex flex-col gap-5 text-center">
+          <div class="flex justify-center align-middle">
+            <div
+              class="flex flex-col gap-5 text-center w-full justify-center align-middle"
+            >
               <Image
                 alt={"profile"}
                 width={100}
@@ -105,15 +106,17 @@ const someProps = {
                 class="rounded-full bg-gray-50 h-52 w-56 mx-auto"
                 src="/public/profile.jpg"
               />
-              <div class="flex flex-col gap-3">
+              <div
+                class="flex flex-col gap-3 align-middle justify-center text-center"
+              >
                 <SparklesPreview client:only="react" />
                 <TextGenerateEffect
                   client:only="react"
                   words="Lucas Pereira de Souza"
                 />
-
-                <TypewriterEffectSmooth client:only="react" words={words} />
-
+                <div class="flex align-middle justify-center text-center">
+                  <TypewriterEffectSmooth client:only="react" words={words} />
+                </div>
                 <div class="space-y-2">
                   <p
                     class="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto"
@@ -179,6 +182,20 @@ const someProps = {
           </div>
         </div>
       </section> -->
+
+      <div
+        class="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background px-40 pb-40 pt-8 md:pb-60 md:shadow-xl"
+      >
+        <span
+          class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10"
+        >
+          Globe
+        </span>
+        <div
+          class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"
+        >
+        </div>
+      </div>
 
       <!-- about me -->
       <section id="about" class="sm:p-10 lg:p-20 bg-black shadow-xl">
@@ -274,7 +291,7 @@ const someProps = {
       </section> -->
 
       <!-- portfolio -->
-      <section class="lg:p-20 p-5" id="portfolio">
+      <section class="lg:p-20 p-5 w-full" id="portfolio">
         <div class="w-full mx-auto">
           <h2 class="text-center text-4xl font-bold pb-10">Tecnologies</h2>
           <div class="lg:columns-2 sm:columns-1 w-full">
@@ -343,9 +360,9 @@ const someProps = {
                 />
               </WobbleCard>
             </div>
+            <!-- <ThreeDCardDemo client:only="react" />
             <ThreeDCardDemo client:only="react" />
-            <ThreeDCardDemo client:only="react" />
-            <ThreeDCardDemo client:only="react" />
+            <ThreeDCardDemo client:only="react" /> -->
           </div>
         </div>
       </section>
@@ -354,11 +371,11 @@ const someProps = {
       <section class="lg:p-20 p-5" id="portfolio">
         <div class="w-full mx-auto">
           <h2 class="text-center text-4xl font-bold pb-10">Portfolio</h2>
-          <div class="lg:columns-2 sm:columns-1 w-full">
+          <div class="lg:columns-3 md:columns-2 sm:columns-1 w-full">
             <ThreeDCardDemo client:only="react" />
             <ThreeDCardDemo client:only="react" />
             <ThreeDCardDemo client:only="react" />
-            <ThreeDCardDemo client:only="react" />
+            <!-- <ThreeDCardDemo client:only="react" /> -->
           </div>
         </div>
       </section>
@@ -370,21 +387,11 @@ const someProps = {
           <div class="w-full sm:flex">
             <div class="sm:w-1/2 w-full">
               <div class="mb-5">
-                <h3 class="text-xl">Address</h3>
-                <p class="text-gray-500">Khulna, Bangladesh</p>
-              </div>
-
-              <div class="mb-5">
                 <h3 class="text-xl">Email</h3>
-                <a class="text-gray-500" href="mailto:rir.cse.71@gmail.com"
-                  >rir.cse.71@gmail.com</a
-                >
-              </div>
-
-              <div class="mb-5">
-                <h3 class="text-xl">Email</h3>
-                <a class="text-gray-500" href="https:wa.me/01750009149"
-                  >+8801750009149</a
+                <a
+                  class="text-gray-500"
+                  href="mailto:lucaspereiradesouzat@gmail.com"
+                  >lucaspereiradesouzat@gmail.com</a
                 >
               </div>
             </div>
@@ -590,4 +597,3 @@ const someProps = {
     padding: 0;
   }
 </style>
-../components/TextGenerative
